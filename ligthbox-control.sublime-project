@@ -1,0 +1,24 @@
+{
+	"folders":
+	[
+		{
+			"path": "src"
+		},
+		{
+			"path": "lib"
+		}
+	],
+	"build_systems":
+	[
+		{
+			"name": "PlatformIO build",
+			"working_dir": "$project_path",
+			"shell_cmd": "platformio run"
+		},
+		{
+			"name": "PlatformIO build & upload",
+			"working_dir": "$project_path",
+			"shell_cmd": "platformio run --target upload"
+		},
+	]
+}

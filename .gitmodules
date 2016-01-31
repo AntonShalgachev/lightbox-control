@@ -1,0 +1,3 @@
+[submodule "lib/Tlc5940"]
+	path = lib/Tlc5940
+	url = https://github.com/AntonShalgachev/Tlc5940
