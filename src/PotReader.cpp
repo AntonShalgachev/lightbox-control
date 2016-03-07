@@ -2,22 +2,22 @@
 
 PotReader::PotReader(uint8_t potPin)
 {
-	_potPin = potPin;
+	potPin_ = potPin;
 
 	for(uint8_t i = 0; i < NUM_READINGS; ++i)
-		_readings[i] = 0;
+		readings_[i] = 0;
 
-	_sum = 0;
-	_index = 0;
+	sum_ = 0;
+	index_ = 0;
 }
 
 uint8_t PotReader::Read()
 {
-	_sum -= _readings[_index];
-	_readings[_index] = analogRead(_potPin) >> 2;
-	_sum += _readings[_index];
+	sum_ -= readings_[index_];
+	readings_[index_] = analogRead(potPin_) >> 2;
+	sum_ += readings_[index_];
 
-	_index = (_index + 1) % NUM_READINGS;
+	index_ = (index_ + 1) % NUM_READINGS;
 
-	return _sum / NUM_READINGS;
+	return sum_ / NUM_READINGS;
 }

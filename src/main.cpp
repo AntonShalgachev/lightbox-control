@@ -6,13 +6,13 @@ void setup()
 	comm.AttachHandler(OnMessageAvailable);
 	control.Setup();
 
-	StartupAnimation2();
+	//StartupAnimation2();
 
 	control.SetWhiteBrightness(0x00);
 	control.SetRGBBrightness(0x00);
-	control.SetRGBBackground(Color::Red);
+	control.SetRGBBackground(Color::Cyan);
 
-	comm.SendMessage(DebugMessage::SETUP_END, 0, nullptr);
+	// comm.SendMessage(DebugMessage::SETUP_END);
 }
 
 void loop()
@@ -87,11 +87,11 @@ void StartupAnimation2()
 			uint8_t led2 = LedControl::NUM_LEDS - i - 1;
 			uint8_t led2Next = LedControl::NUM_LEDS - iNext - 1;
 
-			control.SetRGBLed(led1, col1, brightnessMain);
-			control.SetRGBLed(led1Next, col1, brightnessSide);
+			control.SetRGBLed(led1, col1, true, brightnessMain);
+			control.SetRGBLed(led1Next, col1, true, brightnessSide);
 
-			control.SetRGBLed(led2, col2, brightnessMain);
-			control.SetRGBLed(led2Next, col2, brightnessSide);
+			control.SetRGBLed(led2, col2, true, brightnessMain);
+			control.SetRGBLed(led2Next, col2, true, brightnessSide);
 		}
 		else if(i == LedControl::NUM_LEDS - 1)
 		{
@@ -103,11 +103,11 @@ void StartupAnimation2()
 			uint8_t led2Prev = LedControl::NUM_LEDS - iPrev - 1;
 			uint8_t led2 = LedControl::NUM_LEDS - i - 1;
 
-			control.SetRGBLed(led1Prev, col1, brightnessSide);
-			control.SetRGBLed(led1, col1, brightnessMain);
+			control.SetRGBLed(led1Prev, col1, true, brightnessSide);
+			control.SetRGBLed(led1, col1, true, brightnessMain);
 
-			control.SetRGBLed(led2Prev, col2, brightnessSide);
-			control.SetRGBLed(led2, col2, brightnessMain);
+			control.SetRGBLed(led2Prev, col2, true, brightnessSide);
+			control.SetRGBLed(led2, col2, true, brightnessMain);
 		}
 		else
 		{
@@ -124,29 +124,29 @@ void StartupAnimation2()
 
 			if(led1Next == led2)
 			{
-				control.SetRGBLed(led1Prev, col1, brightnessSide);
-				control.SetRGBLed(led1, colOverlap, brightnessOverlap);
-				control.SetRGBLed(led1Next, colOverlap, brightnessOverlap);
+				control.SetRGBLed(led1Prev, col1, true, brightnessSide);
+				control.SetRGBLed(led1, colOverlap, true, brightnessOverlap);
+				control.SetRGBLed(led1Next, colOverlap, true, brightnessOverlap);
 
-				control.SetRGBLed(led2Prev, col2, brightnessSide);
+				control.SetRGBLed(led2Prev, col2, true, brightnessSide);
 			}
 			else if(led1Prev == led2)
 			{
-				control.SetRGBLed(led1Next, col1, brightnessSide);
+				control.SetRGBLed(led1Next, col1, true, brightnessSide);
 
-				control.SetRGBLed(led2Prev, colOverlap, brightnessOverlap);
-				control.SetRGBLed(led2, colOverlap, brightnessOverlap);
-				control.SetRGBLed(led2Next, col2, brightnessSide);
+				control.SetRGBLed(led2Prev, colOverlap, true, brightnessOverlap);
+				control.SetRGBLed(led2, colOverlap, true, brightnessOverlap);
+				control.SetRGBLed(led2Next, col2, true, brightnessSide);
 			}
 			else
 			{
-				control.SetRGBLed(led1Prev, col1, brightnessSide);
-				control.SetRGBLed(led1, col1, brightnessMain);
-				control.SetRGBLed(led1Next, col1, brightnessSide);
+				control.SetRGBLed(led1Prev, col1, true, brightnessSide);
+				control.SetRGBLed(led1, col1, true, brightnessMain);
+				control.SetRGBLed(led1Next, col1, true, brightnessSide);
 
-				control.SetRGBLed(led2Prev, col2, brightnessSide);
-				control.SetRGBLed(led2, col2, brightnessMain);
-				control.SetRGBLed(led2Next, col2, brightnessSide);
+				control.SetRGBLed(led2Prev, col2, true, brightnessSide);
+				control.SetRGBLed(led2, col2, true, brightnessMain);
+				control.SetRGBLed(led2Next, col2, true, brightnessSide);
 			}
 		}
 
