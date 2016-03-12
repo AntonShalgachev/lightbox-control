@@ -85,9 +85,9 @@ bool SerialComm::Available() const
 
 void SerialComm::GetMessage(uint8_t* msg, uint8_t* len, const uint8_t** data)
 {
-	*msg = buffer_[0];
-	*len = buffer_[1];
-	*data = buffer_ + 2;
+	if(msg) *msg = buffer_[0];
+	if(len) *len = buffer_[1];
+	if(data) *data = buffer_ + 2;
 
 	state_ = State::IDLE;
 }
@@ -121,6 +121,8 @@ void SerialComm::SendMessage(uint8_t msg, uint8_t len, const uint8_t* data)
 	{
 		Serial.write(data, len);
 	}
+
+	Serial.flush();
 }
 
 void SerialComm::SendByte(uint8_t b)

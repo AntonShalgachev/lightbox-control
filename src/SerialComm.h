@@ -52,7 +52,7 @@ private:
 	uint16_t bytesRead_;
 	MsgHandler handler_;
 
-	static const unsigned long BAUD_RATE = 9600;
+	static const unsigned long BAUD_RATE = 115200;
 
 	static const uint8_t MSG_BEGIN_BYTE = 0x06;
 
